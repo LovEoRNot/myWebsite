@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 100px 0;
+  background-color: #123;
+}
+
+.content {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  /* border-radius: 10px;
+  background: #fff; */
+}
+
+.header {
+  color: #fa0;
+  font-size: 50px;
+  font-family: 'AbrazoScriptSSic1a1b311e19c58';
+}
+
+.control-bar {
+  width: 100%;
+  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.control-bar tr:last-child {
+  font-size: 26px;
+  vertical-align: middle;
+}
+
+.minus {
+  margin-right: 10px; 
+}
+.add {
+  margin-left: 10px;
+}
+.minus:hover,
+.add:hover {
+  cursor: pointer;
+}
+
+.clock {
+  box-sizing: border-box;
+  margin: 10px auto;
+  width: 302px;
+  height: 302px;
+  border-radius: 50%;
+  border: 2px solid #0fa;
+}
+
+.innerClock {
+  position: relative;
+  margin: 4px auto;
+  width: 290px;
+  height: 290px;
+  border-radius: 50%; 
+  overflow: hidden;
+}
+.innerClock:hover {
+  cursor: pointer;
+}
+.wave {
+  position: absolute;
+  width: 290px;
+  height: 290px;
+  top: 100%;
+  z-index: -100;
+}
+
+.title,
+.time {
+  color: #fff;
+  font-size: 40px;
+  font-family: 'Regenciec1a2e0cc119c58', Arial, Helvetica, sans-serif;
+}
+
+.title {
+  padding: 60px 0 30px;
+}
+.time {
+  padding: 30px 0;
+}
+
+

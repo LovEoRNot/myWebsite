@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simon Game</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="outer">
+      <div class="block" id="b0"></div>
+      <div class="block" id="b1"></div>
+      <div class="block" id="b2"></div>
+      <div class="block " id="b3"></div>
+    </div>
+    <div class="inner">
+      <div class="panel">
+        <div class="title">Simon<sup>®</sup></div> 
+        <div class="box">
+          <div class="count" id="count">--</div>
+          <div class="word">COUNT</div>
+        </div>
+        <div class="box">
+          <div class="btn-wrap" id="start">
+            <div class="btn red"></div>
+          </div>
+          <div class="word">START</div>
+        </div>
+        <div class="box">
+          <div class="light-wrap">
+            <div class="light"></div>
+          </div>          
+          <div class="btn-wrap" id="strict">           
+            <div class="btn blue"></div>
+          </div>          
+          <div class="word">STRICT</div>
+        </div>
+        <div class="switch">
+          <div class="slide"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

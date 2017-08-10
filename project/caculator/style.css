@@ -1,0 +1,40 @@
+body {
+  background-color: #acd;
+  padding-top: 100px; 
+}
+.caculator {
+  margin: 0 auto;
+  padding: 10px;
+  width: 240px; 
+  box-sizing: content-box;
+  background: #eee;
+}
+input {
+  width: 100%;
+  border: none;
+  text-indent: 5px;
+  text-align: right;
+}
+input[name='sum'] {
+  height: 40px;
+  font-size: 30px;
+}
+.panel {
+  margin: 5px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.panel dd { 
+  padding: 0;
+  margin: 0;
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+.panel dd:hover {
+  background: #ccc;
+  cursor: pointer;
+}

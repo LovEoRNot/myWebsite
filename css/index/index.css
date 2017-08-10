@@ -1,0 +1,121 @@
+.ul-box {
+	margin-top: 3.75em;
+}
+.li-box {
+	width: 7.5em;	
+	height: 2.5em;
+	text-align: center;
+	line-height: 2.5em;
+	font-size: 1.2em;	
+}
+.li-box:hover {
+	background: rgba(204, 204, 204, 0.3);
+	cursor: pointer;
+	color: #666;
+}
+.active {
+	background: rgba(204, 204, 204, 0.3);
+	color: #666;
+}
+.index {
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	text-align: center;
+	transform: translate(-50%, -30%);
+}
+.flow-word {
+	width: 20em;
+	padding-bottom: 1em;
+	font-size: 1.5em;
+	color: #fff;
+	font-family: "Microsoft YaHei","黑体","宋体",sans-serif;
+	border-bottom: 1px solid #eee;
+}
+.flow-word+p {
+	color: #aaa;
+}
+.bg {
+	background: url(../../img/bg.jpg);
+}
+#second {
+	display: none;
+}
+#second:hover {
+	cursor: pointer;
+	color: #aaa;
+}
+.projects {
+	font-size: 0;
+}
+@media only screen and (min-device-width: 1025px) {
+	.project-li {
+		width: 100%;
+		margin: 5px 0;
+		box-sizing: border-box;
+		padding: 10px;
+		height: 9.375em;
+		background-color: rgba(226, 234, 250);
+		font-size: 16px;
+	}
+}
+@media only screen and (max-device-width: 1024px) {
+	.project-li {
+		font-size: 28px;
+		width: 100%;
+		margin: 5px 0;
+		box-sizing: border-box;
+		padding: 10px;
+		height: 9.375em;
+		background-color: rgba(226, 234, 250);		
+	}
+}
+.project-li:hover {
+	cursor: pointer;
+	transform: scale(1.01);
+	border: 1px solid rgba(204, 204, 204, 0.5);
+}
+.project-li .head-pic {
+	float: left;
+	margin-right: -19.6875em;
+	width: 19.6875em;
+	height: 8em;
+}
+.project-li .head-pic img {
+	width: 100%;
+	height: 100%;
+}
+.project-li .text {
+	margin-left: 19.6875em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 8em;
+	/* line-height: 9.375em; */
+	text-align: center; 
+	padding: 5px 10px;
+}
+.project-li .description {
+	height: 7.375em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.project-li .addTime {
+	float: right;
+	font-family: '宋体';
+	font-size: 0.875em;
+	color: #aaa;
+}
+.peoject-inline {
+	display: inline-block;
+	width: 49%;
+	margin: 5px 3px;
+}
+.peoject-inline .head-pic {
+	float: left;
+	margin-right: -8.6875em;
+	width: 8.6875em;
+	height: 8em;
+}
+.peoject-inline  .text {
+	margin-left: 8.6875em;
+}

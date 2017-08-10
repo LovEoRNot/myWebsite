@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>天气预报显示</title>
+<style>
+    body, html {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+    	position: absolute;
+    	left: 50%;
+    	top: 30%;
+    	transform: translate(-50%, -30%);
+    	width: 450px;
+    	border: 1px solid #ccc;
+    	border-radius: 5px;
+    }
+    header {
+    	text-align: center;
+    	font-size: 35px;
+    	color: #1E90FF;
+    }
+    .today p {
+    	text-align: center;
+    }
+    .title {
+    	color: #ADFF2F;
+    	font-size: 20px;
+    }
+    hr {
+    	border: none;
+    	border-bottom: 1px solid #00BFFF;
+    	opacity: 0.5;
+    }
+    .tips {
+    	display: flex;
+    	flex-flow: row wrap;
+    }
+    .tip {
+  		display: inline-block;
+  		margin: 5px auto;
+  		width: 30%;
+  		border: 1px solid #eee;
+  		text-align: center;
+  		color: #666;
+    }
+    .tip p {
+    	color: #000;
+    	font-size: 14px;
+    }
+    #logo {
+    	color: #fff;
+    	width: 200px;
+    }
+</style>
+</head>
+<body>
+	<div class="container" id="main">
+	    <header><img id="logo" src="https://www.juhe.cn/themes/v5/public/images/imgnew/juhelogo.png?v=1.1" alt="聚合天气">天气预报</header>
+	    <div class="today">
+	    	<p class="title">{{weather.today.city}}<span id="city"></span> 今日天气</p>
+	    	<p>今天是<span id="date">{{weather.today.date_y}}</span></p>
+	    	<!-- 实况天气 -->
+	    	<div class="sk">
+	    		<p>当前温度：<span id="temp">{{weather.sk.temp}}</span>℃ &nbsp; 当前湿度：<span id="wet">{{weather.sk.humidity}}</span></p>
+	    		<p>今日温度：<span id="totemp">{{weather.today.temperature}}</span> &nbsp; 今日天气：<span id="weather">{{weather.today.weather}}</span></p>
+	    	</div>
+	    	<hr>
+	    	<!-- 友情提示 -->
+	    	<p class="title">友情提示</p>
+	    	<div class="tips">	    		
+	    		<div class="tip">穿衣指数<p id="cloth">{{weather.today.dressing_index}}</p></div>
+	    		<div class="tip">紫外线强度<p id="uv">{{weather.today.uv_index}}</p></div>
+	    		<div class="tip">舒适度<p id="comf">{{weather.today.comfort_index}}</p></div>
+	    		<div class="tip">旅游指数<p id="tour">{{weather.today.travel_index}}</p></div>
+	    		<div class="tip">晨练指数<p id="exec">{{weather.today.exercise_index}}</p></div>
+	    		<div class="tip">干燥指数<p id="dry">{{weather.today.drying_index}}</p></div>
+	    	</div>
+	    	<hr>
+	    	<!-- 未来预报 -->
+	    	<p class="title">未来3日天气预报</p>
+	    	<div class="tips" id="future">	    		
+	    		<div class="tip">
+	    			<span>{{weather.future[0].date | getDay}}</span>
+	    			<p>温度：<span>{{weather.future[0].temperature}}</span></p>
+	    			<p>天气：<span>{{weather.future[0].weather}}</span></p>
+	    		</div>
+	    		<div class="tip">
+	    			<span>{{weather.future[1].date | getDay}}</span>
+	    			<p>温度：<span>{{weather.future[1].temperature}}</span></p>
+	    			<p>天气：<span>{{weather.future[1].weather}}</span></p>
+	    		</div>
+	    		<div class="tip">
+	    			<span>{{weather.future[2].date | getDay}}</span>
+	    			<p>温度：<span>{{weather.future[2].temperature}}</span></p>
+	    			<p>天气：<span>{{weather.future[2].weather}}</span></p>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="nextDay"></div>
+	</div>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-resource.js"></script>
+	<script src="js/weather.js"></script>
+ <!--    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+	    $(function() {
+	    	$.get('http://v.juhe.cn/weather/index','format=2&cityname='+ encodeURI('闽侯')+'&key=0c4cdfd5469bdb7be0068b3e53bfcc95', function(data) {
+	    		$('#city').text(data.result.today.city);
+	    		$('#date').text(data.result.today.date_y);	    		
+	    		$('#temp').text(data.result.sk.temp);
+	    		$('#wet').text(data.result.sk.humidity);
+	    		$('#totemp').text(data.result.today.temperature);
+	    		$('#weather').text(data.result.today.weather);
+	    		$('#cloth').text(data.result.today.dressing_index);
+	    		$('#uv').text(data.result.today.uv_index);
+	    		$('#comf').text(data.result.today.comfort_index);
+	    		$('#tour').text(data.result.today.travel_index);
+	    		$('#exec').text(data.result.today.exercise_index);
+	    		$('#dry').text(data.result.today.drying_index);
+	    		setFutureDay(data.result.future);
+	    	}, 'jsonp');
+			function setFutureDay(data) {
+				$('#future .tip').each(function(e) {
+					var i = $(this).index();
+					$(this).children(':first').text(getDate(data[i].date));
+					$(this).children(':nth-of-type(1)').children('span').text(data[i].temperature);
+					$(this).children(':nth-of-type(2)').children('span').text(data[i].weather);
+				})
+			}
+			function getDate(day) {
+				if(typeof(day) === 'string') {
+					var year = day.slice(0, 4);
+					var month = day.slice(4, 6);
+					var d = day.slice(6, 8);
+					return year + '-' + month + '-' +d;
+				}				
+			}
+	    })
+   </script>-->
+</body>
+</html>

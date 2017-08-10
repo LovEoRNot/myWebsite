@@ -1,2 +1,1 @@
-# myWebsite
-An simple website for myself
+###[我是直通车](http://www.elliot.xin)

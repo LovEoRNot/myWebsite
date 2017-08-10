@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tomatoClock</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href='http://cdn.webfont.youziku.com/webfonts/nomal/105560/46721/59760551f629d80afc469c59.css' rel='stylesheet' type='text/css' />
+  <link href='http://cdn.webfont.youziku.com/webfonts/nomal/105560/28683/5976007df629d80afc469c57.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      AN EASY TOMATOCLOCK
+    </div>
+    <table class="control-bar">
+      <tr>
+        <td>BREAKLENGTH</td>
+        <td>SESSIONLENGTH</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="minus" id="breakMin">-</span>
+          <span id="break">1</span>
+          <span class="add" id="breakAdd">+</span>
+        </td>
+        <td>
+          <span class="minus" id="sessionMin">-</span>
+          <span id="session">5</span>
+          <span class="add" id="sessionAdd">+</span>
+        </td>
+      </tr>
+    </table>
+    <div class="clock">
+      <div class="innerClock">
+        <div class="wave"></div>
+        <div class="title">SESSION</div>
+        <div class="time">5</div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

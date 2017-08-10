@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>pageTwo</title>
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./style.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<header class="navbar navbar-default navbar-fixed-top" id="banner">
+			<div class="container">				
+		   		<div class="navbar-header">
+		        	<a href="#top"><img src="img/art.jpg" width="50" height="50"></a>
+		    	</div>
+				<div>
+					<nav id="navbar">
+						<ul class="nav navbar-nav navbar-right">
+				            <li class="active"><a href="#top">关于我</a></li>
+				            <li><a href="#portfolio">我的作品</a></li>
+				            <li ><a href="#contact" >联系我</a></li>
+				        </ul>
+					</nav>					
+				</div>				
+			</div>		
+		</header>
+		<a id="top"></a>
+		<div class="container">
+			<div class="main">				
+				<header>
+					<div class="introduce">
+						<p>这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。这是一段文字。</p>
+					</div>
+					<img src="img/art.jpg" alt="个人信息"/>
+				</header>
+				<hr class="gap">
+				<section id="portfolio">
+					<h2>我的作品</h2>
+					<ul class="grid">
+						<li><img src="img/art.jpg" alt="" /></li>
+						<li><img src="img/art.jpg" alt="" /></li>
+						<li><img src="img/art.jpg" alt="" /></li>
+						<li><img src="img/art.jpg" alt="" /></li>
+						<li><img src="img/art.jpg" alt="" /></li>
+						<li><img src="img/art.jpg" alt="" /></li>
+					</ul>
+				</section>
+				<hr class="gap">
+				<section id="contact">
+					<h2>联系我</h2>
+					<div>
+						<div>
+							<form id="contact-form">
+								<div class="form-item">
+									<label for="name">姓名</label>
+									<input id="name" type="text" placeholder="姓名">
+								</div>
+								<div class="form-item">
+									<label for="email">电子邮箱</label>
+									<input id="email" type="email" placeholder="电子邮箱">
+								</div>
+								<div class="form-item">
+									<label for="tel">联系方式</label>
+									<input id="tel" type="tel" placeholder="联系方式">
+								</div>
+								<div class="form-item">
+									<label for="message">想说的话</label>
+									<textarea id="message" placeholder="想说的话" rows="5"></textarea>
+								</div>	
+								<button type="submit">发送</button>
+							</form> 
+						</div>
+						<div>
+							<p>这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。这是一段话。</p>
+							<p>这是一段话。这是一段话。这是一段话。这是一段话。</p>
+							<p>这是一段话。</p>
+						</div>											
+					</div>
+				</section>				
+			</div>
+		</div>
+		<footer>
+			<div class="footer-above">
+				<div>
+					<h2>what is this part?</h2>
+					<span class="glyphicon glyphicon-facetime-video"></span>
+				</div>
+				<div>
+					<h2>where can i get more?</h2>
+				</div>
+			</div>
+			<div class="footer-blow">
+				(c) Copyright 2017 ELLIOT. All Rights Reserved. 
+			</div>
+		</footer>
+		<script>
+			$("#navbar li").each(function() {
+				$(this).click(function() {
+					$(this).addClass("active");
+					var href = $(this).children().attr("href");
+					var pos = $(href).offset().top;
+					$("html,body").animate({scrollTop: pos}, "2000");
+					$(this).siblings().removeClass("active");				
+				})
+			});
+			$("#contact input, textarea").keyup(function() {
+				$(this).siblings().addClass("form-item-focus");
+				$(this).siblings().animate({top: 0}, "fast").css("visibility", "visible");
+				if($(this).val().length == 0) {
+					$(this).siblings().animate({top: 30}, "fast").css("visibility", "hidden");
+				}	
+			}).focus(function() {
+				$(this).siblings().css("color", "#722872");
+			}).blur(function() {
+				$(this).siblings().css("color", "#aaa");
+			});			
+		</script>
+	</body>
+</html>
