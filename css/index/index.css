@@ -114,6 +114,8 @@
 	padding: 5px 10px;
 }
 .project-li .description {
+	font-family: 'Microsoft Yahei';
+	font-size: 0.875em;
 	height: 7.375em;
 	padding: 6px;
 	overflow: hidden;

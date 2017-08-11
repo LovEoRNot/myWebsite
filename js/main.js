@@ -1,9 +1,7 @@
 $(window).on('load', function () {
   setTimeout(wordWrap, 500);
-  document.documentElement.style.overflow = 'hidden';
   listProject();
-  checkCookie();
-  
+  checkCookie(); 
 })
 
 var projectList = [
@@ -21,7 +19,7 @@ var $projects = $('#projects'),
   $list = $('.projects');
 
 $('#second').on('click', function () {
-    document.documentElement.style.overflow = 'scroll';
+  document.documentElement.style.overflow = 'auto';
   $(this).parents('.wrap-white').fadeOut(500, function () {
     $(this).hide();
     $('#second').off('click');
@@ -42,7 +40,7 @@ function listProject() {
       project.description + '</div><div class="addTime">上一次更新' + project.addTime + '</div></div></li>'
   });
   $($list).append(html);
-  if(clientWidth > 980) {$('.project-li').addClass('peoject-inline');}
+  if(clientWidth > 1024) {$('.project-li').addClass('peoject-inline');}
 }
 
 function wordWrap() {
@@ -61,9 +59,10 @@ function getDate() {
   return year + '-' + month + '-' + day;
 }
 //cookie相关
-function checkCookie() {
-   var lastCome = Cookie.get('lastCome');
+function checkCookie() { 
+  var lastCome = Cookie.get('lastCome');
   if (lastCome === null) {
+    document.documentElement.style.overflow = 'hidden';
     var expires = new Date();
     expires.setMinutes(expires.getMinutes() + 3);  //cookie的有效时间为3分钟
     Cookie.set('lastCome', 'isCome', expires)
