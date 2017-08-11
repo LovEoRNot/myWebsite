@@ -1,7 +1,9 @@
 $(window).on('load', function () {
   setTimeout(wordWrap, 500);
+  document.documentElement.style.overflow = 'hidden';
   listProject();
-  //checkCookie();
+  checkCookie();
+  
 })
 
 var projectList = [
@@ -19,10 +21,10 @@ var $projects = $('#projects'),
   $list = $('.projects');
 
 $('#second').on('click', function () {
+    document.documentElement.style.overflow = 'scroll';
   $(this).parents('.wrap-white').fadeOut(500, function () {
     $(this).hide();
     $('#second').off('click');
-    document.documentElement.style.overflow = 'auto';
   });
 });
 $projects.on('click', 'li', function () {

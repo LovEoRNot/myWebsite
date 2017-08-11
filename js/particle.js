@@ -7,7 +7,6 @@ var cw, ch;
 _init();
 function _init() { 
   //设置canvas的宽高
-  document.documentElement.style.overflow = 'hidden';
   cw = document.body.clientWidth || document.documentElement.clientWidth,
   ch =  document.documentElement.clientHeight || document.body.scrollHeight 
        || document.body.clientHeight; //window.screen.height;
