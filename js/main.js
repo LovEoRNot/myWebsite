@@ -1,13 +1,13 @@
 $(window).on('load', function () {
   setTimeout(wordWrap, 500);
   listProject();
-  checkCookie();
+  //checkCookie();
 })
 
 var projectList = [
   { name: 'caculator', description: '一个简易的网页版计算器', addTime: '2017-7-20' },
   { name: 'danmu', description: '弹幕聊天窗口', addTime: '2017-7-20' },
-  { name: 'introduce', description: '一份名人的介绍页面' },
+  { name: 'introduce', description: '一份名人的介绍页面', addTime: '2017-7-20' },
   { name: 'randomQuoteMachine', description: '一个可以随机产生名言的网页应用', addTime: '2017-7-20' },
   { name: 'smallWebsite', description: '一个简易的小网站', addTime: '2017-7-20' },
   { name: 'tomatoClock', description: '一个网页版的番茄钟应用', addTime: '2017-7-20' },
@@ -22,6 +22,7 @@ $('#second').on('click', function () {
   $(this).parents('.wrap-white').fadeOut(500, function () {
     $(this).hide();
     $('#second').off('click');
+    document.documentElement.style.overflow = 'auto';
   });
 });
 $projects.on('click', 'li', function () {
@@ -32,12 +33,14 @@ $projects.on('click', 'li', function () {
 
 function listProject() {
   var html = '';
+  var clientWidth = document.body.clientWidth || document.documentElement.clientWidth;
   projectList.forEach(function (project) {
     html += '<li class="project-li" data-control="' + project.name + '"><div class="head-pic">' +
       '<img src="./img/project/' + project.name + '.png"></div><div class="text"><div class="description">' +
       project.description + '</div><div class="addTime">上一次更新' + project.addTime + '</div></div></li>'
   });
   $($list).append(html);
+  if(clientWidth > 980) {$('.project-li').addClass('peoject-inline');}
 }
 
 function wordWrap() {
@@ -55,7 +58,6 @@ function getDate() {
   day = (day < 10) ? '0' + day : day;
   return year + '-' + month + '-' + day;
 }
-console.log(document.cookie)
 //cookie相关
 function checkCookie() {
    var lastCome = Cookie.get('lastCome');
