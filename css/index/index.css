@@ -1,3 +1,7 @@
+.top-banner {
+	position: relative;
+	width: 100%; 
+}
 .bg { 
 	position: absolute;
 	top: 0;
@@ -15,7 +19,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 100;
+
 }
 .ul-box {
 	margin-top: 3.75em;
@@ -42,7 +46,6 @@
 	top: 30%;
 	text-align: center;
 	transform: translate(-50%, -30%);
-	z-index: 1000;
 }
 .flow-word {
 	width: 20em;
@@ -73,7 +76,6 @@
 		box-sizing: border-box;
 		padding: 10px;
 		height: 9.375em;
-		background-color: rgba(178, 241, 227, 1);
 		font-size: 16px;
 	}
 }
@@ -86,13 +88,13 @@
 		box-sizing: border-box;
 		padding: 10px;
 		height: 9.375em;
-		background-color: rgba(178, 241, 227, 1);		
 	}
 }
 .project-li:hover {
 	cursor: pointer;
 	transform: scale(1.01);
-	border: 1px solid rgba(204, 204, 204, 0.5);
+	background: rgba(204, 204, 204, 0.3);
+	border: 1px solid rgba(204, 204, 204, 0.5)
 }
 .project-li .head-pic {
 	float: left;

@@ -9,6 +9,9 @@ body, html {
 		font-size: 2em;
 		margin: 0 15px;
 	}
+	.banner {
+		height: 6.25em;
+	}
 }
 /* 屏幕小于1024px */
 @media only screen and (min-device-width: 415px) and (max-device-width: 1024px) {
@@ -16,6 +19,9 @@ body, html {
 		width: 80%;
 		font-size: 1.5em;
 		margin: 0 auto;
+	}
+	.banner {
+		height: 6.25em;
 	}
 }
 /* 屏幕大于1024px */
@@ -26,9 +32,6 @@ body, html {
 		min-width: 33em;
 		margin: 0 auto;
 	}
-}
-.banner {
-	height: 6.25em;
 }
 .header {
 	position: relative;
