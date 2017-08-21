@@ -1,4 +1,3 @@
-
 $('.menu').on('click', function() { $(this).hide(); $('.aside-menu').fadeIn();})
 $('.myClose').on('click', function() { $(this).parent().fadeOut(); $('.menu').show(); })
 $('.more').on('click', function() { $(this).parent().slideUp(800, function() {$('.menu, footer').show();});})
@@ -7,6 +6,11 @@ $(window)
   .on('load', function() {
     $('body').css('overflow-y', 'scroll');
     $('.wrap').hide();
+    $('.addTime').each(function() {
+      var oldTime = $(this).text();
+      var newTime = formateDate(oldTime * 1000);
+      $(this).text(newTime);
+    })    
   })
   .on('scroll', function() {
     if(tag) {
@@ -25,7 +29,7 @@ $(window)
         });      
       }
     }   
-  })
+  });
 $('.project') 
   .hover(function() {
     $(this).children('.description').stop().fadeIn();
@@ -41,5 +45,8 @@ $('.aside-menu dl').on('click', 'a', function() {
   href = href.slice(href.lastIndexOf('/')+1);
   var pos = $(href).offset().top;
   $("html,body").animate({scrollTop: pos}, "2000"); 
-})
-
+});
+function formateDate(timestamp) {
+  var date = new Date(timestamp);
+  return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+}

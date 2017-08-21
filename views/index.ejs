@@ -7,6 +7,15 @@
   <link href="./img/favicon.ico" rel="shortcut icon">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/index.css" rel="stylesheet">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?99c49b8b21001ac7c0c024d37f1bf768";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
 </head>
 <body> 
   <div class="wrap">
@@ -35,7 +44,7 @@
         <img src=<%=projectList[i].pic%> title=<%=projectList[i].href%> >
         <div class="description">
           <p><%=projectList[i].description%></p>
-          <span><%=projectList[i].addTime%></span>
+          <span class="addTime"><%=projectList[i].addTime%></span>
         </div>
       </div>
       <% }%>
@@ -44,27 +53,9 @@
     <h3 class="title">我的<span class="text-danger">信息</span></h3>
     <section id="introduce">
       <div class="left">
-        <h4 class="text-primary">我是肖雷<small>虽然标题叫我的信息倒不如叫建站历程</small></h4>
-        <p>我是一名在读大学生，对前端开发有着无限的憧憬，在一个机缘巧合的情况下，萌生了制作一个个人网页的冲动，于是便有了这个成果，看起来是如此的简陋和破败.</p>
-        <p>在校期间主要学习了一些计算机相关的基本信息，像计算机网络、组成原理、操作系统啊，但是学完就忘了好些，在自己的建站过程中，许多新的问题喷涌而出。
-           先是在阿里云服务器上搭建开发环境就花了不少时间，因为在选择服务器的时候没有选择默认提供好的开发环境，而是打算自己搭建，好不容易java的开发环境搭建好了，
-           放了一个试行页面，输入网址后却是服务器拒绝了请求，这时候变开始四处找原因啊，翻书，百度（这里吐槽一下百度，好像我要找的重点它永远都没有），花了一天左右时间终于解决了，
-           通过这次的经历彻底的回顾了一遍从输入地址到返回内容这一过程（虽然至今还不能彻底熟悉）。</p>
-        <p>本来是打算建一个前台使用bootsrap后台用java的网站，但实际发现现在自己好像没有太多可以与后台进行交互的地方，为了方便我都是直接把数据存放到一个js对象里然后读取数据，
-           于是1.0版本(姑且这么叫吧，就是原始版本)就只是一个静态页面，也没什么华丽的特效（虽然现在也没有）。后来学了vue.js，于是有了把前端部分用vue来重构一遍的想法，但实际上
-           学到的能力还不足以将整个项目重构，所以先标记一下，待到技术成熟再来过，现在的这个是1.1版本了，我把页面风格稍微转换了一下，不过移除了原有的能在手机上完美显示的代码，
-           所以这个网页在电脑上才可以有完美的效果。哦，对了，最近学了nodeJs+express相关的知识，所以在这个版本中加入了后台功能（说是后台功能，其实就是把原本存在前台对象里的数据
-           放到后台了，然后交由ejs模板来添加到页面上而已），自己设想是使用数据库来存储，不过那个不在这一次的升级想法里，所以还是先标记一下，以后回头看就只到还有什么需要增加的了。
-        </p>
-        <p>再来聊聊我自己吧，其实有了打算走前端这条路想法也不过半年多的时间，之前还一度以java后台开发为目标，在学习了web开发后，前端开发这个词正式的刻印在我的脑海里，因为我发现前端
-           也是蛮有趣的嘛，自己写的代码都能以页面的形式用一种更人性化的方式显示出来多好啊。所以便开始自学html+css+js，其实一开始也不知道要干嘛，学习也没什么方向，不过当时有春招，所以就
-           随便投了家前端开发的岗位来进行笔试，通过那次笔试也算是正式丢出了那块敲门砖了，想想学到现在也花了几个月了，虽然时间不长，但学的东西蛮多了，因为自己是抱着一种广泛涉猎的心态来学习，
-           除了深度学习html/css/js外，其他的都是学习到会用为止，回过来发现这样划水学习学了node,jq,vue，不过vue这个框架还在学习中，node了解了系统模块的使用方法还有express相关的知识。
-        </p>
-        <p>不走前端不知道，一入前端深似海，这东西无时不刻涌出新的东西，以前的还不会新的又出现，像es2015自己还只会箭头函数，模板字符串，现在es2017也要来了，不过没差，一点一点来。一口吃不成个大胖子。
-           自己也在不断学习着，这未尝不是一件好事。
-        </p>
-        <span><b>ps:</b>其实自己还想要找一份正式的实习工作，毕竟还是缺少实战经验，处理学校任务和自己的练习项目也没有其他经验了。</span>
+        <h4 class="text-primary"><%=introduce.title%><small><%=introduce.subtitle%></small></h4>
+        <%-introduce.content%>
+        <span><b>ps:</b><%=introduce.remark%></span>
       </div>
       <div class="right">
         <div class="portrail">
@@ -76,6 +67,7 @@
           <p>就读院校：福建师范大学</p>
           <p>专业：计算机科学与技术</p>
           <p>个人技能：html/css/javascript/java</p>
+          <p>邮箱：1094253525@qq.com</p>
         </div>
       </div>
     </section>

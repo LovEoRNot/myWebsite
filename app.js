@@ -8,7 +8,6 @@ app.use('/', require('./route/index'))
 
 app.use(express.static('./public'))
 
-app.listen('8080', function(err) {
-  if(err) console.log('端口被占用');
+app.listen('8080', function() {
   console.log('正在监听8080端口');
 })
