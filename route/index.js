@@ -7,7 +7,7 @@ route.get('/', (req, res) => {
     conn.query('SELECT * FROM tb_project', (err, result) => {
       if(err) res.sendStatus(500).send('服务器内部错误').end();
       var projectList = result;
-      conn.query('SELECT * FROM tb_introduce WHERE version = 1.2', (err, data) => {
+      conn.query('SELECT * FROM tb_introduce WHERE version = 1.3', (err, data) => {
         conn.release();
         if(err) res.sendStatus(500).send('服务器内部错误').end();
         var introduce = data[0];

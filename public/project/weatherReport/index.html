@@ -8,6 +8,7 @@
         padding: 0;
         margin: 0;
     }
+		[v-cloak] {display: none}
     .container {
     	position: absolute;
     	left: 50%;
@@ -82,20 +83,10 @@
 	    	<!-- 未来预报 -->
 	    	<p class="title">未来3日天气预报</p>
 	    	<div class="tips" id="future">	    		
-	    		<div class="tip">
-	    			<span>{{weather.future[0].date | getDay}}</span>
-	    			<p>温度：<span>{{weather.future[0].temperature}}</span></p>
-	    			<p>天气：<span>{{weather.future[0].weather}}</span></p>
-	    		</div>
-	    		<div class="tip">
-	    			<span>{{weather.future[1].date | getDay}}</span>
-	    			<p>温度：<span>{{weather.future[1].temperature}}</span></p>
-	    			<p>天气：<span>{{weather.future[1].weather}}</span></p>
-	    		</div>
-	    		<div class="tip">
-	    			<span>{{weather.future[2].date | getDay}}</span>
-	    			<p>温度：<span>{{weather.future[2].temperature}}</span></p>
-	    			<p>天气：<span>{{weather.future[2].weather}}</span></p>
+	    		<div class="tip" v-for="(w, index) in weather.future">
+	    			<span>{{w.date | getDay}}</span>
+	    			<p>温度：<span>{{w.temperature}}</span></p>
+	    			<p>天气：<span>{{w.weather}}</span></p>
 	    		</div>
 	    	</div>
 	    </div>

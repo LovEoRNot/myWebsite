@@ -4,9 +4,7 @@ var vm = new Vue({
 		weather: {}
 	},
 	mounted: function() {
-		this.$nextTick(function() {
-			vm.getWeatherInfo();
-		})
+		this.getWeatherInfo();
 	},
 	filters: {
 		getDay: function(day) {
@@ -21,8 +19,8 @@ var vm = new Vue({
 	methods: {
 		getWeatherInfo: function() {
 			var src = 'http://v.juhe.cn/weather/index?format=2&cityname=' + encodeURI('闽侯')+'&key=0c4cdfd5469bdb7be0068b3e53bfcc95';
-			vm.$http.jsonp(src).then(function(res) {
-				vm.weather = res.body.result;
+			this.$http.jsonp(src).then(function(res) {
+				this.weather = res.body.result;
 			})
 		}
 	}
