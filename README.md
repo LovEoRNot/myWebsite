@@ -1,1 +1,1 @@
-**[我是直通车](http://www.elliot.xin)
+[我是直通车](http://www.elliot.xin)
