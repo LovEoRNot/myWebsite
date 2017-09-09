@@ -1,11 +1,12 @@
 $('.menu').on('click', function() { $(this).hide(); $('.aside-menu').fadeIn();})
 $('.myClose').on('click', function() { $(this).parent().fadeOut(); $('.menu').show(); })
 $('.more').on('click', function() { $(this).parent().slideUp(800, function() {$('.menu, footer').show();});})
+$('.wrap~div, footer').hide();
 var tag = true;  //用来标记是否继续触发sroll事件
 $(window)
   .on('load', function() {
     $('body').css('overflow-y', 'scroll');
-    $('.wrap').fadeOut();
+   $('.wrap').fadeOut(500, function(){$('.wrap~div, footer').show();}); 
     $('.addTime').each(function() {
       var oldTime = $(this).text();
       var newTime = formateDate(oldTime * 1000);
