@@ -5,7 +5,7 @@ var tag = true;  //用来标记是否继续触发sroll事件
 $(window)
   .on('load', function() {
     $('body').css('overflow-y', 'scroll');
-    $('.wrap').hide();
+    $('.wrap').fadeOut();
     $('.addTime').each(function() {
       var oldTime = $(this).text();
       var newTime = formateDate(oldTime * 1000);
